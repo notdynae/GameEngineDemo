@@ -136,7 +136,7 @@ public class FirstPersonController_Sam : MonoBehaviour
     private void HandleMovementInput()
     {
         // Read inputs
-        currentInput = new Vector2(Input.GetAxisRaw("Vertical"), Input.GetAxis("Horizontal"));
+        currentInput = new Vector2(Input.GetAxis("Vertical"), Input.GetAxis("Horizontal"));
 
         // normalizes input when 2 directions are pressed at the same time
         // TODO; find a more elegant solution to normalize, this is a bit of a hack method to normalize it estimates and is not 100% accurate.
@@ -270,10 +270,5 @@ public class FirstPersonController_Sam : MonoBehaviour
         playerCamera.fieldOfView = targetFOV;
         zoomRoutine = null;
     }
-
-
-
-
-
 
 }
