@@ -22,30 +22,13 @@ public class Projector : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other == redUpTrigger.GetComponent<Collider>())
-        {
-            projectorScript.redValue++;
-        }
-        if (other == redDownTrigger.GetComponent<Collider>())
-        {
-            projectorScript.redValue--;
-        }
-        if (other == blueUpTrigger.GetComponent<Collider>())
-        {
-            projectorScript.blueValue++;
-        }
-        if (other == blueDownTrigger.GetComponent<Collider>())
-        {
-            projectorScript.blueValue--;
-        }
-        if (other == greenUpTrigger.GetComponent<Collider>())
-        {
-            projectorScript.greenValue++;
-        }
-        if (other == greenDownTrigger.GetComponent<Collider>())
-        {
-            projectorScript.greenValue--;
-        }
+        if (other == redUpTrigger.GetComponent<Collider>()) projectorScript.redValue++;
+        if (other == redDownTrigger.GetComponent<Collider>()) projectorScript.redValue--;
+        if (other == blueUpTrigger.GetComponent<Collider>()) projectorScript.blueValue++;
+        if (other == blueDownTrigger.GetComponent<Collider>()) projectorScript.blueValue--;
+        if (other == greenUpTrigger.GetComponent<Collider>()) projectorScript.greenValue++;
+        if (other == greenDownTrigger.GetComponent<Collider>()) projectorScript.greenValue--;
+        
         projectorScript.SetColour();
     }
 }
