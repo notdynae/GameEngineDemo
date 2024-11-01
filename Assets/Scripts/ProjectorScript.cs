@@ -1,26 +1,23 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projector : MonoBehaviour
+public class ProjectorScript : MonoBehaviour
 {
-    public GameObject powerTrigger;
-    public GameObject redUpTrigger;
-    public GameObject redDownTrigger;
-    public GameObject greenUpTrigger;
-    public GameObject greenDownTrigger;
-    public GameObject blueUpTrigger;
-    public GameObject blueDownTrigger;
-
+    
     public GameObject projectorLight;
 
-    private byte _red;
-    private byte _blue;
-    private byte _green;
+    public byte redValue;
+    public byte blueValue;
+    public byte greenValue;
 
-    private void OnTriggerEnter(Collider other)
+    public void FlipLight()
     {
+        projectorLight.SetActive(!projectorLight.activeSelf);
+    }
 
+    public void SetColour()
+    {
+        projectorLight.GetComponent<Light>().color = new Color(redValue / 255f, blueValue / 255f, greenValue / 255f);
     }
 }
