@@ -17,7 +17,9 @@ public class Projector : MonoBehaviour
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other == powerTrigger.GetComponent<Collider>()) projectorScript.FlipLight();
+        if (other == powerTrigger.GetComponent<Collider>()) {
+            projectorScript.FlipLight();
+        }
     }
 
     private void OnTriggerStay(Collider other)

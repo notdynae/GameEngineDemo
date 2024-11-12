@@ -7,6 +7,7 @@ public class ProjectorScript : MonoBehaviour
 {
     public GameObject projectorLight;
     public Material lensMaterial;
+    public AudioSource projectorClick;
     
 
     public byte redValue;
@@ -29,7 +30,7 @@ public class ProjectorScript : MonoBehaviour
     {
         projectorLight.SetActive(!projectorLight.activeSelf);
         if (!projectorLight.activeSelf) lensMaterial.SetColor("_EmissionColor", Color.black);
-        SetColour();
+        projectorClick.Play();
     }
 
     public void SetColour()
