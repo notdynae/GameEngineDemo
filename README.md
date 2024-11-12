@@ -1,2 +1,2 @@
-# TriggerDemo
- Showcase of transparent trigger boxes in Unity
+# Trigger / SFX Demo
+ Showcase of transparent trigger boxes and various audio sources in Unity
