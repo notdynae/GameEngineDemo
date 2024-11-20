@@ -1,2 +1,2 @@
-# Trigger / SFX Demo
- Showcase of transparent trigger boxes and various audio sources in Unity
+# Game Engine Demo
+ Showcase of various Unity properties for Intro to Game Engine I, including transparent trigger boxes, various audio sources, and timeline events
