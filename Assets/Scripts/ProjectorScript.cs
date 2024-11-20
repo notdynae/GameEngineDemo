@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class ProjectorScript : MonoBehaviour
 {
     public GameObject projectorLight;
     public Material lensMaterial;
     public AudioSource projectorClick;
+    public PlayableDirector timelineDirector;
     
 
     public byte redValue;
@@ -42,6 +44,10 @@ public class ProjectorScript : MonoBehaviour
         
         rgbText.text = $"$Red: {redValue}\n$Green: {greenValue}\n$Blue: {blueValue}";
         DynamicGI.UpdateEnvironment();
+    }
+
+    public void PlayTimeline() {
+        timelineDirector.Play();
     }
     
     

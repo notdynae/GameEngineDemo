@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class Projector : MonoBehaviour
 {
     public ProjectorScript projectorScript;
     
     public Collider powerTrigger;
+    public Collider timelineTrigger;
     public Collider redUpTrigger;
     public Collider redDownTrigger;
     public Collider greenUpTrigger;
@@ -20,7 +22,10 @@ public class Projector : MonoBehaviour
         if (other == powerTrigger) {
             projectorScript.FlipLight();
         }
-    }
+		else if (other == timelineTrigger) {
+            projectorScript.PlayTimeline();
+		}
+	}
 
     private void OnTriggerStay(Collider other)
     {
