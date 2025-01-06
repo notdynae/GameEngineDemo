@@ -16,16 +16,6 @@ public class Projector : MonoBehaviour
     public Collider greenDownTrigger;
     public Collider blueUpTrigger;
     public Collider blueDownTrigger;
-    
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other == powerTrigger) {
-            projectorScript.FlipLight();
-        }
-		else if (other == timelineTrigger) {
-            projectorScript.PlayTimeline();
-		}
-	}
 
     private void OnTriggerStay(Collider other)
     {
@@ -38,4 +28,14 @@ public class Projector : MonoBehaviour
         
         projectorScript.SetColour();
     }
+
+	private void OnTriggerEnter(Collider other) {
+		// Calls different events based on the trigger that was entered
+		if (other == powerTrigger) {
+			ActionsManager.LightFlipEvent?.Invoke();
+		}
+		else if (other == timelineTrigger) {
+			ActionsManager.LightShowEvent?.Invoke();
+		}
+	}
 }

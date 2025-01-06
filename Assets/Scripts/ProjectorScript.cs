@@ -27,13 +27,7 @@ public class ProjectorScript : MonoBehaviour
         greenValue = 255;
         SetColour();
     }
-    
-    public void FlipLight()
-    {
-        projectorLight.SetActive(!projectorLight.activeSelf);
-        if (!projectorLight.activeSelf) lensMaterial.SetColor("_EmissionColor", Color.black);
-        projectorClick.Play();
-    }
+   
 
     public void SetColour()
     {
@@ -45,10 +39,24 @@ public class ProjectorScript : MonoBehaviour
         rgbText.text = $"$Red: {redValue}\n$Green: {greenValue}\n$Blue: {blueValue}";
         DynamicGI.UpdateEnvironment();
     }
+	public void FlipLight() {
+		projectorLight.SetActive(!projectorLight.activeSelf);
+		if (!projectorLight.activeSelf) lensMaterial.SetColor("_EmissionColor", Color.black);
+		projectorClick.Play();
+	}
 
-    public void PlayTimeline() {
+	public void PlayTimeline() {
         timelineDirector.Play();
     }
-    
-    
+
+    // Sets this projector to be listening for event calls on enable
+	private void OnEnable() {
+		ActionsManager.LightShowEvent += PlayTimeline;
+		ActionsManager.LightFlipEvent += FlipLight;
+	}
+    // Removes this projector as a listener for event calls on disable
+	private void OnDisable() {
+		ActionsManager.LightShowEvent -= PlayTimeline;
+		ActionsManager.LightFlipEvent -= FlipLight;
+	}
 }
